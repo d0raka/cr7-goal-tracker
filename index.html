@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristiano Ronaldo Goal Tracker</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('https://images6.alphacoders.com/614/thumb-1920-614633.jpg') no-repeat center center/cover;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative; /* Needed for the floating nav bar */
+    }
+
+    /* Floating Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffdd00; /* Yellow color */
+      width: 60px;
+      height: 60px;
+      border-radius: 50%; /* Round shape */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000; /* Ensure it stays on top */
+    }
+
+    .navbar:hover {
+      transform: translateX(-50%) scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    .navbar img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Main Container */
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px 60px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      max-width: 500px;
+      animation: fadeIn 1.5s ease-in-out;
+      font-weight: bold;
+    }
+
+    /* Header Styling */
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      color: #f4f4f4;
+    }
+
+    /* Subtitle Styling */
+    p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    /* Goal Counter Styling */
+    #goal-count {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #ffdd00; /* Gold color for emphasis */
+      margin-bottom: 20px;
+      display: inline-block;
+      position: relative;
+    }
+
+    /* Add a glowing effect to the goal count */
+    #goal-count::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #ffdd00;
+      border-radius: 50%;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    /* Footer Styling */
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #ffdd00;
+      }
+      to {
+        box-shadow: 0 0 20px #ffdd00, 0 0 30px #ffdd00;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Navigation Bar -->
+  <div class="navbar">
+    <img src="https://cdn-icons-png.flaticon.com/512/4081/4081988.png" alt="GOAT Icon">
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Cristiano Ronaldo Goal Tracker</h1>
+    <p class="subtitle">Celebrating the Legend's 1000 Goals</p>
+    <p>Current Goals: <span id="goal-count">924</span></p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Cristiano Ronaldo Goal Tracker. All rights reserved.
+  </footer>
+
+  <script>
+    // Placeholder for manual updates
+    let goalCount = 924; // Initial goal count
+
+    // Function to manually update the goal count
+    function updateGoalCount(newCount) {
+      const goalElement = document.getElementById('goal-count');
+      goalCount = newCount || goalCount; // Use the provided count or keep the current one
+      goalElement.textContent = goalCount;
+
+      // Optional: Add a temporary highlight effect
+      goalElement.style.color = '#ffffff';
+      setTimeout(() => {
+        goalElement.style.color = '#ffdd00';
+      }, 200);
+    }
+
+    // Example of how to use the function:
+    // Uncomment the line below to test manual updates
+    // updateGoalCount(925);
+
+    // Future Real-Time Update Placeholder
+    // You can replace this with an API call when ready
+    setInterval(() => {
+      console.log("Checking for updates..."); // Simulate periodic checks
+      // Replace this with actual API logic when available
+    }, 60000); // Check every 60 seconds
+  </script>
+</body>
+</html>
